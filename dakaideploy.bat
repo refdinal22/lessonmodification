@@ -1,0 +1,1 @@
+mvn clean install sakai:deploy -Dmaven.tomcat.home=C:\SakaiServer2\tomcat -Djava.net.preferIPv4Stack=true -Dmaven.test.skip=true
