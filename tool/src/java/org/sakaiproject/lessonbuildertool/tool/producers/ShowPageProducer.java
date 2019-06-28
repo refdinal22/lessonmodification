@@ -455,6 +455,11 @@ public class ShowPageProducer implements ViewComponentProducer, DefaultView, Nav
 		UIOutput.make(tofill,"lastname", modifierName);
 		UIOutput.make(tofill,"lastdate", stringDate(currentPageL.getLastModified()));
 
+		// GeneralViewParameters ExampleParams = new GeneralViewParameters(ExampleProducer.VIEW_ID);
+		// ExampleParams.setSendingPage(currentPageL.getPageId());
+		// ExampleParams.pageId = currentPageL.getPageId();
+		// UILink exampleLink = UIInternalLink.make(tofill, "example", messageLocator.getMessage("simplepage.import_lti_button"), ExampleParams);
+		// exampleLink.decorate(new UITooltipDecorator(messageLocator.getMessage("simplepage.print_view")));
 		//edit
 		// UIOutput.make(tofill,"example", simplePageToolDao.getExample());
 		// UIOutput.make(tofill,"example", simplePageBean.addExample());
@@ -4225,6 +4230,10 @@ public class ShowPageProducer implements ViewComponentProducer, DefaultView, Nav
 		    decorate(new UITooltipDecorator(messageLocator.getMessage("simplepage.add-item-page")));
 
 		createToolBarLink(EditPageProducer.VIEW_ID, tofill, "add-text", "simplepage.text", currentPage, "simplepage.text.tooltip").setItemId(null);
+		//UAS
+		createToolBarLink(ShowProdukProducer.VIEW_ID, tofill, "pembelian", "simplepage.pembelian", currentPage, "simplepage.pembelian.tooltip").setItemId(null);
+		//UAS
+
 		//modifikasi
 		createToolBarLink(ExampleProducer.VIEW_ID, tofill, "add-glossary", "simplepage.glossary", currentPage, "simplepage.glossary.tooltip").setItemId(null);
 		//modifikasi

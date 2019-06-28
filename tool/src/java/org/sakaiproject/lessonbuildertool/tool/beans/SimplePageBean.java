@@ -133,6 +133,16 @@ import org.sakaiproject.lessonbuildertool.SimplePageExample;
 import org.sakaiproject.lessonbuildertool.SimplePageExampleImpl;
 
 import org.sakaiproject.lessonbuildertool.SimplePageGlossary;
+import org.sakaiproject.lessonbuildertool.Penjualan;
+import org.sakaiproject.lessonbuildertool.PenjualanImpl;
+
+import org.sakaiproject.lessonbuildertool.SimplePagePenjualan;
+import org.sakaiproject.lessonbuildertool.SimplePagePenjualanImpl;
+
+
+import org.sakaiproject.lessonbuildertool.SimplePageCustomer;
+import org.sakaiproject.lessonbuildertool.SimplePageCustomerImpl;
+
 import org.sakaiproject.lessonbuildertool.SimplePageGlossaryImpl;
 
 
@@ -212,7 +222,7 @@ public class SimplePageBean {
 	private String term;
 	private String desc;
 	private String category;
-
+	private Long curPageId=null;
 
 	private List<Long> currentPath = null;
 	private Set<Long> allowedPages = null;
@@ -361,11 +371,31 @@ public class SimplePageBean {
 	private String twitterDropDown;
 	private String twitterUsername;
 	private String twitterWidgetHeight;
+
+	// UAS
+	private String qty;
+	private String kode;
+	// UAS
     // almost ISO format. real thing can't be done until Java 7. uses -0400 rather than -04:00
     //        SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
 	SimpleDateFormat isoDateFormat = getIsoDateFormat();
 
+	// UAS
+	public String getQty() {
+		return qty;
+	}
 
+	public void setQty(String qty) {
+		this.qty = qty;
+	}
+
+	public String getKode() {
+		return kode;
+	}
+
+	public void setKode(String kode) {
+		this.kode = kode;
+	}
 	//modifikasi
 	public String getNameE() {
 		return nameE;
@@ -405,6 +435,14 @@ public class SimplePageBean {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public long getCurPageId() {
+		return curPageId;
+	}
+
+	public void setCurPageId(Long curPage) {
+		this.curPageId = curPage;
 	}
 	//modifikasi
 	public void setPeerEval(boolean peerEval) {
@@ -2878,11 +2916,11 @@ public class SimplePageBean {
 				subpage.setReleaseDate(d1);
 				//Editedscript
 
-		    // if(isStudentPage(page)){
-		    //     subpage.setOwned(false);
-		    // } else {
-		    //     subpage.setOwned(owner!=null);
-		    // }
+		    if(isStudentPage(page)){
+		        subpage.setOwned(false);
+		    } else {
+		        subpage.setOwned(owner!=null);
+		    }
 
 
 		    subpage.setGroup(group);
@@ -9002,22 +9040,42 @@ public class SimplePageBean {
 	}
 	//modifikasi
 	public String processActionSubmit(){
-        if (term != null && term.length() > 0) {
-        	SimplePageGlossary glossary = new SimplePageGlossaryImpl();    
-			boolean status;
+   		
 
-        	glossary.setTerm(term);
-        	glossary.setDescription(desc);
-        	glossary.setCategory(category);
-            //Return string for NavigationCase
-            // status = simplePageToolDao.insertDB(glossary);
-    		// if(status){
     			return "success";		
-    		// }
-        // }else{
-            // return "failure";
-        }
-        return "failure";
+    }
+
+    public String tambahPenjualan(){
+   		SimplePagePenjualan penjualanbaru = new SimplePagePenjualanImpl();
+   		User user = UserDirectoryService.getCurrentUser();
+   		SimplePageProduk produk = simplePageToolDao.getDetailProduk(Integer.valueOf(kode));
+   		SimplePageCustomer customer = simplePageToolDao.getCustomer(user.getId());
+
+   		if(kode != null){
+   			penjualanbaru.setKode_produk(Integer.valueOf(kode));
+   			penjualanbaru.setUser_id(user.getId());
+			
+			penjualanbaru.setQty(Integer.valueOf(qty));
+			if (Integer.valueOf(qty) > produk.getStok() || Integer.valueOf(qty) <= 0) {
+				return "failure";
+			}
+
+			produk.setStok(produk.getStok() - Integer.valueOf(qty));
+			penjualanbaru.setTotal(Integer.valueOf(qty)*produk.getHarga());
+
+			if(customer == null){
+				customer = new SimplePageCustomerImpl();
+				customer.setIdCustomer(user.getId());
+				customer.setNamaCustomer(user.getDisplayName());
+				simplePageToolDao.insertDB(customer);
+			}
+
+			simplePageToolDao.quickUpdate(produk);
+   			simplePageToolDao.insertDB(penjualanbaru);
+
+   			return "success";
+   		}
+    	return "failure";		
     }
 
     public String addGlossary(){
@@ -9025,3 +9083,6 @@ public class SimplePageBean {
     }
 
 }
+
+
+

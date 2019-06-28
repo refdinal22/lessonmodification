@@ -38,6 +38,7 @@ org\sakaiproject\lessonbuildertool\tool\producers\PagePickerProducer.class
 org\sakaiproject\lessonbuildertool\service\GroupPermissionsService$3.class
 org\sakaiproject\lessonbuildertool\tool\producers\ChecklistProducer.class
 org\sakaiproject\lessonbuildertool\service\LessonBuilderEntityProducer$MyMessageLocator.class
+org\sakaiproject\lessonbuildertool\tool\producers\DetailProdukProducer.class
 org\sakaiproject\lessonbuildertool\tool\evolvers\SakaiFCKTextEvolver.class
 org\sakaiproject\lessonbuildertool\service\JForumEntity$JForumTitle.class
 org\sakaiproject\lessonbuildertool\service\JForumEntity$4.class
@@ -80,6 +81,7 @@ org\sakaiproject\lessonbuildertool\resolver\MultiCommonsMultipartResolver.class
 org\sakaiproject\lessonbuildertool\tool\producers\CommentGradingPaneProducer.class
 org\sakaiproject\lessonbuildertool\service\ForumEntity.class
 org\sakaiproject\lessonbuildertool\tool\beans\SimplePageBean$6.class
+org\sakaiproject\lessonbuildertool\tool\producers\ShowProdukProducer.class
 org\sakaiproject\lessonbuildertool\cc\CartridgeLoader.class
 org\sakaiproject\lessonbuildertool\service\LessonBuilderEntityProducer$ContentCopyContext.class
 org\sakaiproject\lessonbuildertool\tool\beans\GradingBean.class

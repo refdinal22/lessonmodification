@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.sakaiproject.lessonbuildertool">
+
+   <class name="org.sakaiproject.lessonbuildertool.SimplePagePenjualanImpl" table="lesson_penjualan">
+
+       <cache usage="nonstrict-read-write" />
+
+      <!-- create the primary key id, using native is typically the best way -->
+      <id name="id" type="int">
+         <generator class="native"></generator>
+      </id>
+      
+    	<property name="kode_produk" type="int" not-null="true" />
+    	<property name="total" type="int" not-null="true" />
+      <property name="qty" type="int" not-null="true" />
+    	<property name="user_id" type="string" length="99" not-null="true"/>
+   </class>
+</hibernate-mapping>

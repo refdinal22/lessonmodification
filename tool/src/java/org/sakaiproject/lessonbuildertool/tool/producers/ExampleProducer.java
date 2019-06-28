@@ -89,6 +89,7 @@ public class ExampleProducer implements ViewComponentProducer, NavigationCaseRep
         	// }
 
         	//quiz-label
+        	UIOutput.make(tofill, "pageId", Long.toString(gparams.pageId));
         	UIOutput.make(tofill, "list_glossary", "List Glossary");
         	UIBranchContainer row_label = UIBranchContainer.make(tofill, "glossary-label:");
 	            UIOutput.make(row_label, "id_label", "ID");

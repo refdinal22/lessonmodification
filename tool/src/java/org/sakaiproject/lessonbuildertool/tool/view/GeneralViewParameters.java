@@ -60,6 +60,9 @@ public class GeneralViewParameters extends SimpleViewParameters {
 	public String messageId = "";
 	public String topicId = "";
 	public String forumId = "";
+	//variable for page id
+	public long pageId; 
+	private String produkId; 
 
 	public GeneralViewParameters() {
 		super();
@@ -226,5 +229,14 @@ public class GeneralViewParameters extends SimpleViewParameters {
 
 	public void setForumId(String forumId) {
 		this.forumId = forumId;
+	}
+
+	//UAS
+	public String getProdukId() {
+		return produkId;
+	}
+
+	public void setProdukId(String produkId) {
+		this.produkId = produkId;
 	}
 }

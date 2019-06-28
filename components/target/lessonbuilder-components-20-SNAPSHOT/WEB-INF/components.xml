@@ -23,6 +23,13 @@
 		<value>org/sakaiproject/lessonbuildertool/checklistitemstatus.hbm.xml</value>
     <value>org/sakaiproject/lessonbuildertool/simplepageexample.hbm.xml</value>
     <value>org/sakaiproject/lessonbuildertool/simplepageglossary.hbm.xml</value>
+
+    <value>org/sakaiproject/lessonbuildertool/penjualan.hbm.xml</value>
+    <value>org/sakaiproject/lessonbuildertool/simplepagejenisprodukimpl.hbm.xml</value>
+    <value>org/sakaiproject/lessonbuildertool/simplepageproduk.hbm.xml</value>
+    <value>org/sakaiproject/lessonbuildertool/simplepagecustomerimpl.hbm.xml</value>
+    <value>org/sakaiproject/lessonbuildertool/simplepagepenjualanimpl.hbm.xml</value>
+    
       </list>
     </property>
   </bean>

@@ -4,12 +4,17 @@ org\sakaiproject\lessonbuildertool\SimplePageAuthorImpl.class
 org\sakaiproject\lessonbuildertool\SimplePageCommentImpl.class
 org\sakaiproject\lessonbuildertool\SimplePageQuestionAnswerImpl.class
 org\sakaiproject\lessonbuildertool\ChecklistItemStatusId.class
+org\sakaiproject\lessonbuildertool\SimplePagePenjualanImpl.class
 org\sakaiproject\lessonbuildertool\ChecklistItemStatusImpl.class
 org\sakaiproject\lessonbuildertool\SimplePageImpl.class
+org\sakaiproject\lessonbuildertool\PenjualanImpl.class
 org\sakaiproject\lessonbuildertool\SimplePagePeerEvalResultImpl.class
 org\sakaiproject\lessonbuildertool\SimplePageGroupImpl.class
 org\sakaiproject\lessonbuildertool\SimpleChecklistItemImpl.class
+org\sakaiproject\lessonbuildertool\SimplePageJenisProdukImpl.class
 org\sakaiproject\lessonbuildertool\SimplePageGlossaryImpl.class
+org\sakaiproject\lessonbuildertool\SimplePageProdukImpl.class
+org\sakaiproject\lessonbuildertool\SimplePageCustomerImpl.class
 org\sakaiproject\lessonbuildertool\SimplePagePropertyImpl.class
 org\sakaiproject\lessonbuildertool\SimplePageExampleImpl.class
 org\sakaiproject\lessonbuildertool\SimplePageLogEntryImpl.class

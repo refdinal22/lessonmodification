@@ -196,7 +196,11 @@ simplePageBean.processActionSubmit,
 simplePageBean.term,
 simplePageBean.desc,
 simplePageBean.category,
-simplePageBean.addGlossary
+simplePageBean.addGlossary,
+simplePageBean.curPageId,
+simplePageBean.qty,
+simplePageBean.kode,
+simplePageBean.tambahPenjualan
 </value>
 </property>
 </bean>

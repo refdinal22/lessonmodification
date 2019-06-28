@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html rsf:id="html" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"/>
+<script rsf:id="scr=portal-matter" type="text/javascript" language="JavaScript" src="/library/js/headscripts.js"></script> 
+<link rsf:id="scr=portal-matter" href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
+<link rsf:id="scr=portal-matter" href="/library/skin/default/tool.css" type="text/css" rel="stylesheet" media="all" />
+<link rsf:id="scr=portal-matter" href="/library/src/morpheus-master/bootstrap-sass-3.3.7/assets/stylesheets/_bootstrap.scss" type="text/css" rel="stylesheet" media="all" />
+<link rel="stylesheet" rsf:id="scr=rewrite-url" href="../css/Simplepagetool.css" type="text/css"/>
+<link rel="stylesheet" rsf:id="scr=rewrite-url" href="../css/produk.css" type="text/css"/>
+
+<title rsf:id="msg=simplepage.edit-page"></title>
+</head>
+<body rsf:id="scr=sakai-body">
+<script type="text/javascript" src="$context/js/jquery-1.9.1.min.js"></script>
+
+
+	<div class="portletBody">
+
+		<label rsf:id="produk_name"></label>
+		<p rsf:id="detailNama"></p>
+
+		<label rsf:id="produk_stok"></label>
+		<p rsf:id="detailStok"></p>
+
+		<label rsf:id="produk_desc"></label>
+		<p rsf:id="detailDesc"></p>
+	
+	<form rsf:id="add-produk" action="#" id="add-produk" method="post" enctype="multipart/form-data">
+		<label rsf:id="kode_name"></label>
+		<select rsf:id="kode_produk">
+			<option rsf:id="option_kodeproduk:">
+				<span rsf:id="text_kodeproduk"></span>
+			</option>
+		</select>
+		<p></p>
+		<label rsf:id="produk_qty"></label>
+		<div class="row">
+			<div class="col-lg-2">
+				
+				<input class="form-control" type="number" rsf:id="input_qty" />
+			</div>
+			<p>
+			</p>
+		</div>
+		<p>
+		</p>
+		<div class="btn-group">
+			<input type="submit" rsf:id="submit" id="submit"/>
+		</div>
+	</form>
+	
+</div>
+</body>
+</html>

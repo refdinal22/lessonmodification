@@ -47,6 +47,10 @@ import org.sakaiproject.lessonbuildertool.SimpleChecklistItem;
 import org.sakaiproject.lessonbuildertool.ChecklistItemStatus;
 
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.sakaiproject.lessonbuildertool.SimplePageProduk;
+import org.sakaiproject.lessonbuildertool.SimplePageJenisProduk;
+
+import org.sakaiproject.lessonbuildertool.SimplePageCustomer;
 
 public interface SimplePageToolDao {
 
@@ -342,4 +346,16 @@ public interface SimplePageToolDao {
 
     //quiz
     public List<SimplePageGlossary> getAllGlossary(); 
+    public List<SimplePageGlossary> getGlossary(String cat);
+
+    //UAS
+    
+    public List<SimplePageJenisProduk> getAllJenis();
+    public String getJenis(int kode);
+    public List<SimplePageProduk> getProduk();
+    public List<SimplePageProduk> getUserProduk();
+    public SimplePageProduk getDetailProduk(int kode);
+    public List<SimplePageProduk> getProdukJenis(int kode);
+
+    public SimplePageCustomer getCustomer(String userId);
 }

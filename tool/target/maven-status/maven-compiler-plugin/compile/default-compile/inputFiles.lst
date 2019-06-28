@@ -14,6 +14,7 @@ C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonb
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\producers\QuizPickerProducer.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\producers\LinkTrackerProducer.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\view\GeneralViewParameters.java
+C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\producers\DetailProdukProducer.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\view\QuestionGradingPaneViewParameters.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\cc\WebContentParser.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\producers\ReorderProducer.java
@@ -23,6 +24,7 @@ C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonb
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\cc\AssessmentHandler.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\producers\FolderPickerProducer.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\producers\ChecklistProgressProducer.java
+C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\producers\ShowProdukProducer.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\tool\view\ExportCCViewParameters.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\service\LessonBuilderEntityProducer.java
 C:\sakaimaster\sakai-master\lessonbuilder\tool\src\java\org\sakaiproject\lessonbuildertool\service\SamigoEntity.java

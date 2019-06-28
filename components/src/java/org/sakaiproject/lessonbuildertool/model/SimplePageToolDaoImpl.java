@@ -95,6 +95,9 @@ import org.sakaiproject.lessonbuildertool.SimplePageExampleImpl;
 import org.sakaiproject.lessonbuildertool.SimplePageGlossary;
 import org.sakaiproject.lessonbuildertool.SimplePageGlossaryImpl;
 
+import org.sakaiproject.lessonbuildertool.SimplePageCustomer;
+import org.sakaiproject.lessonbuildertool.SimplePageCustomerImpl;
+
 import org.sakaiproject.lessonbuildertool.api.LessonBuilderConstants;
 import org.sakaiproject.lessonbuildertool.api.LessonBuilderEvents;
 import org.sakaiproject.lessonbuildertool.util.LessonsSubNavBuilder;
@@ -104,6 +107,8 @@ import org.sakaiproject.site.api.SiteService;
 import org.sakaiproject.site.api.ToolConfiguration;
 import org.sakaiproject.tool.api.ToolManager;
 import org.sakaiproject.user.api.UserDirectoryService;
+import org.sakaiproject.lessonbuildertool.SimplePageProduk;
+import org.sakaiproject.lessonbuildertool.SimplePageJenisProduk;
 
 @Setter @Slf4j
 public class SimplePageToolDaoImpl extends HibernateDaoSupport implements SimplePageToolDao {
@@ -973,6 +978,17 @@ public class SimplePageToolDaoImpl extends HibernateDaoSupport implements Simple
 		}	
 	}
 
+	public List<SimplePageGlossary> getGlossary(String cat){
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageGlossary.class).add(Restrictions.eq("category", cat));
+		List<SimplePageGlossary> l = (List<SimplePageGlossary>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l;
+		} else {
+			return null;
+		}	
+	}
+
 	public boolean insertDB(Object o){
 		try {
 			getHibernateTemplate().save(o);
@@ -990,6 +1006,91 @@ public class SimplePageToolDaoImpl extends HibernateDaoSupport implements Simple
 		}
 	}
 	//modifikasi
+	//UAS
+	public List<SimplePageJenisProduk> getAllJenis(){
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageJenisProduk.class);
+		List<SimplePageJenisProduk> l = (List<SimplePageJenisProduk>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l;
+		} else {
+			return null;
+		}	
+	}
+
+	public String getJenis(int kode){
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageJenisProduk.class).add(Restrictions.eq("kodeJenisProduk", kode));
+		List<SimplePageJenisProduk> l = (List<SimplePageJenisProduk>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l.get(0).getJenisProduk();
+		} else {
+			return null;
+		}	
+	}
+
+	//produk yang di beli
+	public List<SimplePageProduk> getProduk(){
+		String currentUser = userDirectoryService.getCurrentUser().getId();
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageProduk.class).add(Restrictions.not(Restrictions.eq("userId", currentUser)));
+		List<SimplePageProduk> l = (List<SimplePageProduk>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l;
+		} else {
+			return null;
+		}	
+	}
+
+	//customer
+	public SimplePageCustomer getCustomer(String userId){
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageCustomer.class).add(Restrictions.eq("idCustomer", userId));
+		List<SimplePageCustomer> l = (List<SimplePageCustomer>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l.get(0);
+		} else {
+			return null;
+		}		
+	}
+
+	//produk per user
+	public List<SimplePageProduk> getUserProduk(){
+		String currentUser = userDirectoryService.getCurrentUser().getId();
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageProduk.class).add(Restrictions.eq("userId", currentUser));
+		List<SimplePageProduk> l = (List<SimplePageProduk>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l;
+		} else {
+			return null;
+		}	
+	}
+
+	//detail produk
+	public SimplePageProduk getDetailProduk(int kode){
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageProduk.class).add(Restrictions.eq("kodeProduk", kode));
+		List<SimplePageProduk> l = (List<SimplePageProduk>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l.get(0);
+		} else {
+			return null;
+		}	
+	}
+
+	//produk berdasarkan kategori
+	public List<SimplePageProduk> getProdukJenis(int kode){
+		String currentUser = userDirectoryService.getCurrentUser().getId();
+		DetachedCriteria d = DetachedCriteria.forClass(SimplePageProduk.class).add(Restrictions.not(Restrictions.eq("userId", currentUser))).add(Restrictions.eq("kodeJenisProduk", kode));
+		List<SimplePageProduk> l = (List<SimplePageProduk>) getHibernateTemplate().findByCriteria(d);
+
+		if (l != null && l.size() > 0) {
+			return l;
+		} else {
+			return null;
+		}	
+	}
 
 	public String getPageUrl(long pageId) {
 

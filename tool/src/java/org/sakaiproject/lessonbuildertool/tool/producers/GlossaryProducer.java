@@ -12,6 +12,7 @@ import uk.org.ponder.rsf.components.UIContainer;
 import uk.org.ponder.rsf.components.UIELBinding;
 import uk.org.ponder.rsf.components.UIForm;
 import uk.org.ponder.rsf.components.UIInput;
+import uk.org.ponder.rsf.components.UISelect;
 import uk.org.ponder.rsf.components.UIOutput;
 import uk.org.ponder.rsf.components.decorators.UIFreeAttributeDecorator;
 import uk.org.ponder.rsf.components.decorators.UITooltipDecorator;
@@ -74,24 +75,51 @@ public class GlossaryProducer implements ViewComponentProducer, NavigationCaseRe
         	getLanguage())).decorate(new UIFreeAttributeDecorator("xml:lang", localeGetter.get().getLanguage()));  
 
         	UIOutput.make(tofill,"glossary","Add Glossary");
-        	UIOutput.make(tofill,"term_label","Term");
-        	UIOutput.make(tofill,"desc_label","Description");
-        	UIOutput.make(tofill,"category_label","Category");
+        	// UIOutput.make(tofill,"term_label","Term");
+        	// UIOutput.make(tofill,"desc_label","Description");
+        	UIOutput.make(tofill,"category_label","Filter By Category : ");
 
-        	String term = null;
+        	String gCat = null;
+        	//dropdown
+        	List<SimplePageGlossary> listGlossary;
+        	List<String> cate = new ArrayList();
+
+        	listGlossary = simplePageToolDao.getAllGlossary();
+
+        	for (SimplePageGlossary item : listGlossary){
+        		cate.add(item.getCategory());
+        	}
+        	
+
+        	String[] catArray = cate.toArray(new String[cate.size()]);
 
         	UIForm form = UIForm.make(tofill, "add-glossary");
+        	UISelect cat = UISelect.make(form, "kategori", catArray, catArray, "#{simplePageBean.category}", "2");
         	UIInput.make(form, "term_glossary:", "#{simplePageBean.term}");
-        	term = simplePageBean.getTerm();
+        	// term = simplePageBean.getTerm();
+        	gCat = simplePageBean.getCategory();
+
         	UIInput.make(form, "desc_glossary:", "#{simplePageBean.desc}");
-        	UIInput.make(form, "category_glossary", "#{simplePageBean.category}");
+        	// UIInput.make(form, "category_glossary", "#{simplePageBean.category}");
         	UICommand.make(form, "submit","Add", "#{simplePageBean.processActionSubmit}");
 
-        	if(term != null){
-        		UIOutput.make(tofill,"term", term);
+        	if(gCat != null){
+        		UIOutput.make(tofill,"term", gCat);
+
+        		// List<SimplePageGlossary> listRGlossary;
+        		listGlossary = simplePageToolDao.getGlossary(gCat);
         	}
         	else{
         		UIOutput.make(tofill,"term", "NONE");	
+        	}
+
+        	for (SimplePageGlossary item : listGlossary){
+            	//Create a new <li> element
+		            UIBranchContainer row = UIBranchContainer.make(tofill, "glossary-row:");
+		            UIOutput.make(row, "id_glossary", Integer.toString(item.getid()));
+		            UIOutput.make(row, "term_glossary", item.getTerm());
+		            UIOutput.make(row, "desc_glossary", item.getDescription());
+		            UIOutput.make(row, "category_glossary", item.getCategory());
         	}
         	
         	

@@ -176,6 +176,27 @@
 		<property name="showPageProducer" ref="showPageProducer" />
 		<property name="localeGetter" ref="requestLocaleProxy" />
 	</bean>
+	<!-- UAS -->
+	<bean class="org.sakaiproject.lessonbuildertool.tool.producers.ShowProdukProducer" >
+		<property name="messageLocator" ref="messageLocator"/>
+		<property name="simplePageBean" ref="simplePageBean" />
+		<property name="simplePageToolDao">
+			<ref bean="org.sakaiproject.lessonbuildertool.model.SimplePageToolDao" />
+		</property>
+		<property name="showPageProducer" ref="showPageProducer" />
+		<property name="localeGetter" ref="requestLocaleProxy" />
+	</bean>
+
+	<bean class="org.sakaiproject.lessonbuildertool.tool.producers.DetailProdukProducer" >
+		<property name="messageLocator" ref="messageLocator"/>
+		<property name="simplePageBean" ref="simplePageBean" />
+		<property name="simplePageToolDao">
+			<ref bean="org.sakaiproject.lessonbuildertool.model.SimplePageToolDao" />
+		</property>
+		<property name="showPageProducer" ref="showPageProducer" />
+		<property name="localeGetter" ref="requestLocaleProxy" />
+	</bean>
+
 	<!-- modifikasi -->
 	<bean class="org.sakaiproject.lessonbuildertool.tool.producers.ExampleProducer" >
 		<property name="messageLocator" ref="messageLocator"/>
